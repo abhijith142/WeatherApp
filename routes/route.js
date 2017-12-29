@@ -6,9 +6,11 @@ router.get("/",function(req,res){
   res.sendFile("index.html");
 })
 
-router.get("/getReportBasedOnLocation",function(req,res){
+router.get("/getReportBasedOnLocation", async function(req,res){
   console.log(req.query);
-  res.json({location:req.query.location});
+  var data = await weatherController.getDataBasedOnLocation(req.query);
+  //console.log(data)
+  res.json(data);
 })
 
 router.get("/getReportBasedOnLatitude",function(req,res){
