@@ -6,8 +6,14 @@ router.get("/",function(req,res){
   res.sendFile("index.html");
 })
 
-router.get("/getLocations",function(req,res){
+router.get("/getReportBasedOnLocation",function(req,res){
+  console.log(req.query);
+  res.json({location:req.query.location});
+})
 
+router.get("/getReportBasedOnLatitude",function(req,res){
+  console.log(req.query);
+  res.json({location:req.query.latitude+"/"+req.query.longitude});
 })
 
 module.exports = router;
