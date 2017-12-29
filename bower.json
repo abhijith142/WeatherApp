@@ -1,0 +1,17 @@
+{
+  "name": "air_asia_test_app",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Abhijith <abhijith.142@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/abhijith142/WeatherApp",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

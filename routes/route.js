@@ -3,7 +3,7 @@ const weatherController = require("../controllers/weatherController");
 var router = express.Router();
 
 router.get("/",function(req,res){
-  res.send("done");
+  res.sendFile("index.html");
 })
 
 router.get("/getLocations",function(req,res){
