@@ -7,5 +7,5 @@ app.use(express.static(__dirname + "/public"));
 app.use("/",router);
 
 app.listen(9090,function(){
-  console.log("server rinning at 9090");
+  console.log("server running at 9090");
 })

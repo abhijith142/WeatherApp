@@ -1,0 +1,54 @@
+h3{
+  font-size:22px;
+  font-weight:700;
+}
+.textLeft{
+  text-align: left;
+  margin-right: 100px;
+}
+.backgroundImage{
+   background-image: url("../cloudy.jpg");
+   background-color: #cccccc;
+   position: absolute;
+   width:100%;
+   min-height:100%;
+   background-size: 100% 100%;
+}
+.bottomDivChart{
+    background-color: rgba(4, 1, 1, 0.56);
+    color:white;
+}
+svg text {
+    fill: white;
+}
+.mainContentDisplay{
+  color:white;
+  min-height: 325px;
+  margin-top: 5px;
+  background-color: rgba(4, 1, 1, 0.56);
+}
+.mainContentContents{
+  text-align: center;
+}
+.mainContentDatesDisplay{
+  padding:10px;
+}
+.tableDates{
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.44);
+
+}
+.tableDatesCell:hover{
+  background-color:rgba(255, 195, 195, 0.44);
+}
+.activeDate{
+  background-color: rgba(202, 165, 165, 0.44);
+}
+.textLeft{
+  text-align: left;
+}
+.error{
+  font-weight: 700;
+  color:red;
+  float:right;
+}

@@ -4,18 +4,24 @@
     <meta charset="utf-8">
     <title>Weather app</title>
     <link rel="stylesheet" href="components\bootstrap\dist\css\bootstrap.min.css">
+    <link rel="stylesheet" href="components\nvd3\build\nv.d3.min.css">
+    <link rel="stylesheet" href="assets\css\style.css">
     <script src="components\jquery\dist\jquery.min.js"></script>
     <script src="components\bootstrap\dist\js\bootstrap.min.js"></script>
     <script src="components\angular\angular.min.js"></script>
     <script src="components\angular-route\angular-route.min.js"></script>
-    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+    <script src="components\d3\d3.min.js"></script>
+    <script src="components\nvd3\build\nv.d3.min.js"></script> <!-- or use another assembly -->
+    <script src="components\angular-nvd3\dist\angular-nvd3.min.js"></script>
+
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <script src="app\app.js"></script>
     <script src="app\controller\homeController.js"></script>
     <script src="app\service\weatherService.js"></script>
+
   </head>
   <body ng-app="app">
-    <h1>Hello</h1>
-    <div class="container-fluid">
+    <div class="container-fluid backgroundImage">
       <ng-view></ng-view>
     </div>
   </body>

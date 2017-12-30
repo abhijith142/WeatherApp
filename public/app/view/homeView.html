@@ -1,1 +1,109 @@
-<h1>{{name}}</h1>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="navbar navbar-inverse">
+      <div>
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">WebSiteName</a>
+        </div>
+
+        <form class="navbar-form navbar-right">
+          <div class="form-group">
+            <input type="text" ng-model="searchLocation" class="form-control" placeholder="Search Location">
+          </div>
+          <button type="submit" ng-click="changeLocation();" class="btn btn-default">Submit</button>
+        </form>
+      </div>
+    </nav>
+  </div>
+  <div class="row">
+    <div class="error" ng-show="error">
+      Unable to find any matching weather location to the query submitted!
+    </div>
+  </div>
+  <div class="mainContentDisplay col-xs-12 col-sm-12 col-md-12 col-lg-6">
+    <div><h3>{{city.long_name}} Latest weather observations at : {{currentCondition.observation_time}}</h3></div>
+    <div class="mainContentContents col-xs-12 col-sm-12 col-md-12 col-lg-4">
+      <div ng-if="currentCondition.observation_time.includes('PM')">
+        <div><img src="assets/moon.png" widht=150 height=150/></div>
+        <div><h4>{{currentCondition.weatherDesc[0].value}}</h4></div>
+        <div><h4>{{currentCondition.temp_C}} &deg;C</h4></div>
+      </div>
+      <div ng-if="currentCondition.observation_time.includes('AM')">
+        <img src="assets/sun.png" widht=150 height=150/>
+        <div><h4>{{currentCondition.weatherDesc[0].value}}</h4></div>
+        <div><h4>{{currentCondition.temp_C}} &deg;C</h4></div>
+      </div>
+    </div>
+    <div class="mainContentContents col-xs-12 col-sm-12 col-md-12 col-lg-4">
+      <img src="assets/sunrise.png" widht=150 height=150/>
+      <div><h5>Sunrise: {{weather.astronomy[0].sunrise}}</h5></div>
+      <div><h5>Sunset: {{weather.astronomy[0].sunset}}</h5></div>
+
+    </div>
+    <div class="mainContentContents col-xs-12 col-sm-12 col-md-12 col-lg-4">
+      <img src="assets/moonrise.png" widht=150 height=150/>
+      <div><h5>Moonrise: {{weather.astronomy[0].moonrise}}</h5></div>
+      <div><h5>Moonset: {{weather.astronomy[0].moonset}}</h5></div>
+    </div>
+  </div>
+  <div class="mainContentDisplay mainContentDatesDisplay col-xs-12 col-sm-12 col-md-12 col-lg-6">
+    <table class="table table-bordered tableDates">
+      <thead>
+        <tr>
+          <th class="text-center tableDatesCell" ng-class="{true: 'activeDate'}[currentDate == date]" ng-repeat="date in dates" ng-click="datesChanged($event,date)">
+            <h4>{{date}}</h4>
+          </th>
+        <tr>
+      </thead>
+    </table>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <table class="table">
+          <thead>
+            <th></th>
+              <th class="text-center">
+                <h4>Morning</h4>
+                <img ng-src="{{hourlyWeather[2].weatherIconUrl[0].value}}"/>
+              </th>
+              <th class="text-center">
+                <h4>Afternoon</h4>
+                <img ng-src="{{hourlyWeather[4].weatherIconUrl[0].value}}"/>
+              </th>
+              <th class="text-center">
+                <h4>Evening</h4>
+                <img ng-src="{{hourlyWeather[6].weatherIconUrl[0].value}}"/>
+              </th>
+              <th class="text-center">
+                <h4>Night</h4>
+                <img ng-src="{{hourlyWeather[7].weatherIconUrl[0].value}}"/>
+              </th>
+          </thead>
+          <tbody>
+            <tr class="text-center">
+              <td class="textLeft">
+                <span class="glyphicon glyphicon-certificate"></span>
+                <span>Temperature</span>
+              </td>
+              <td>{{hourlyWeather[2].tempC}}</td>
+              <td>{{hourlyWeather[4].tempC}}</td>
+              <td>{{hourlyWeather[6].tempC}}</td>
+              <td>{{hourlyWeather[7].tempC}}</td>
+            </tr>
+            <tr class="text-center">
+              <td class="textLeft">
+                <span class="glyphicon glyphicon-dashboard"></span>
+                <span>Feels
+                  Temperature</span>
+              </td>
+              <td>{{hourlyWeather[2].FeelsLikeC}}</td>
+              <td>{{hourlyWeather[4].FeelsLikeC}}</td>
+              <td>{{hourlyWeather[6].FeelsLikeC}}</td>
+              <td>{{hourlyWeather[7].FeelsLikeC}}</td>
+            </tr>
+          </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row bottomDivChart">
+    <nvd3 options="options" data="data" class="with-3d-shadow with-transitions"></nvd3>
+  </div>
+</div>
