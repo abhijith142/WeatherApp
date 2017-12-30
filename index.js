@@ -17,4 +17,4 @@ app.use("/",router);
 app.listen(process.env.PORT || 9090,function(){
   console.log("server running at 9090");
 })
-https.createServer(sslOptions, app).listen(process.env.PORT || 9091)
+https.createServer(sslOptions, app).listen(9091)
